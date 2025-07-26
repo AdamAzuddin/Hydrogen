@@ -1,0 +1,18 @@
+# Compiler output
+*.asm
+*.o
+*.out
+*.exe
+
+# CMake build artifacts
+build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Editor/OS metadata
+.vscode/
+.DS_Store
+Thumbs.db
+
