@@ -4,77 +4,8 @@
 #include <optional>
 #include <vector>
 
-enum class TokenType
-{
-    _exit,
-    int_lit,
-    semi
-};
+#include "tokenization.hpp"
 
-struct Token
-{
-    TokenType type;
-    std::optional<std::string> value;
-};
-
-std::vector<Token> tokenize(const std::string &str)
-{
-    std::string buf;
-    std::vector<Token> tokens;
-    for (size_t i = 0; i < str.length(); i++)
-    {
-        char c = str.at(i);
-
-        if (std::isalpha(c))
-        {
-            buf.push_back(c);
-            i++;
-            while (std::isalnum(str.at(i)))
-            {
-                buf.push_back(str.at(i));
-                i++;
-            }
-            i--;
-
-            if (buf == "exit")
-            {
-                tokens.push_back({.type = TokenType::_exit});
-                buf.clear();
-            }
-            else
-            {
-                std::cerr << "You messed up!" << std::endl;
-                exit(EXIT_FAILURE);
-            }
-        }
-        else if (std::isdigit(c))
-        {
-            buf.push_back(c);
-            i++;
-            while (std::isalnum(str.at(i)))
-            {
-                buf.push_back(str.at(i));
-                i++;
-            }
-            i--;
-            tokens.push_back({.type = TokenType::int_lit, .value = buf});
-        }
-        else if (c == ';')
-        {
-            tokens.push_back({.type = TokenType::semi});
-        }
-        else if (std::isspace(c))
-        {
-            continue;
-        }
-        else
-        {
-            std::cerr << "No valid token" << std::endl;
-            exit(EXIT_FAILURE);
-        }
-    }
-    return tokens;
-}
 
 std::string tokens_to_asm(const std::vector<Token> &tokens)
 {
@@ -117,7 +48,8 @@ int main(int argc, char *argv[])
         contents = contents_stream.str();
     }
 
-    std::vector<Token> tokens = tokenize(contents);
+    Tokenizer tokenizer(std::move(contents));
+    std::vector<Token> tokens = tokenizer.tokenize();
 
     {
         std::fstream file("out.asm", std::ios::out);
