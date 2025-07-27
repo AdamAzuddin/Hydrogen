@@ -6,7 +6,7 @@
 
 enum class TokenType
 {
-    _return,
+    _exit,
     int_lit,
     semi
 };
@@ -36,9 +36,9 @@ std::vector<Token> tokenize(const std::string &str)
             }
             i--;
 
-            if (buf == "return")
+            if (buf == "exit")
             {
-                tokens.push_back({.type = TokenType::_return});
+                tokens.push_back({.type = TokenType::_exit});
                 buf.clear();
             }
             else
@@ -83,7 +83,7 @@ std::string tokens_to_asm(const std::vector<Token> &tokens)
     for (size_t i = 0; i < tokens.size(); i++)
     {
         const Token &token = tokens.at(i);
-        if (token.type == TokenType::_return)
+        if (token.type == TokenType::_exit)
         {
             if (i + 1 < tokens.size() && tokens.at(i + 1).type == TokenType::int_lit)
             {
