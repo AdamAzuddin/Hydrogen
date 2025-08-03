@@ -63,8 +63,10 @@ This will compile the `.hy` file and output the result (exit code).
 ## Sample Code
 
 ```hy
-let y = (10 - 2 * 3) / 2;
+let y = 4;
 let x = 7;
+
+exit(x)
 ```
 
 ---
