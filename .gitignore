@@ -3,6 +3,7 @@
 *.o
 *.out
 *.exe
+out
 
 # CMake build artifacts
 build/
