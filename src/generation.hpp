@@ -80,9 +80,9 @@ public:
         {
             gen_stat(stat);
         }
-        //m_output << "    mov rax, 60\n";
-        //m_output << "    mov rdi, 0\n";
-        //m_output << "    syscall";
+        m_output << "    mov rax, 60\n";
+        m_output << "    mov rdi, 0\n";
+        m_output << "    syscall";
         return m_output.str();
     }
 
