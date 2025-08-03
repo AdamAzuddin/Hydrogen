@@ -1,8 +1,8 @@
 # Hydrogen
 
-Hydrogen is a simple, stack-based programming language implemented in C++. This project is a personal exploration of how compilers work, following along with [Matthew Oros's YouTube series](https://www.youtube.com/playlist?list=PLUDlas_Zy_qC7c5tCgTMYq2idyyT241qs) and the corresponding [GitHub repository](https://github.com/orosmatthew/hydrogen-cpp).
+Hydrogen is a simple, programming language implemented in C++. This project is a personal exploration of how compilers work, following along with [Matthew Oros's YouTube series](https://www.youtube.com/playlist?list=PLUDlas_Zy_qC7c5tCgTMYq2idyyT241qs) and the corresponding [GitHub repository](https://github.com/orosmatthew/hydrogen-cpp).
 
-The language supports basic arithmetic operations and variable declarations. Future goals include implementing control flow (while/for loops) and user-defined functions.
+The language supports exit statement and variable declarations. Future goals include implementing arithmetic operations, if-else scopes, control flow (while/for loops) and user-defined functions.
 
 ---
 
